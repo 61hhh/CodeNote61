@@ -3,14 +3,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <!-- 父模块信息 -->
+    <groupId>com.liu</groupId>
     <artifactId>code-note</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- 子模块 -->
+    <modules>
+        <module>segmentation</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <!-- 抽取通用的依赖 -->
+    <dependencies>
+
+    </dependencies>
 
 
     <build>
