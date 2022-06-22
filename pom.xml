@@ -12,6 +12,7 @@
     <!-- 子模块 -->
     <modules>
         <module>segmentation</module>
+        <module>rabbitmq</module>
     </modules>
 
     <properties>
