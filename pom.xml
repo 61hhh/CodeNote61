@@ -3,7 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- 父模块信息 -->
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.7.0</version>
+    </parent>
+
+    <!-- 父项目信息 -->
     <groupId>com.liu</groupId>
     <artifactId>code-note</artifactId>
     <packaging>pom</packaging>
@@ -13,6 +19,7 @@
     <modules>
         <module>segmentation</module>
         <module>rabbitmq</module>
+        <!--<module>rabbitmq-boot1</module> boot项目-->
     </modules>
 
     <properties>
