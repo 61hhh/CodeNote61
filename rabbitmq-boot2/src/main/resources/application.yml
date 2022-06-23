@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: 192.168.204.127
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
