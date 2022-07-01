@@ -23,6 +23,7 @@
     </properties>
 
     <dependencies>
+        <!-- 引入fastjson，将用户数据导入es -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
