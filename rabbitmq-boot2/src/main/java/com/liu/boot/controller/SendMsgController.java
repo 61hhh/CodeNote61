@@ -27,7 +27,7 @@ public class SendMsgController {
     public void sendMsg(@PathVariable String msg) {
         log.info("当前时间----->{},发送消息给两个TTL队列----->{}", new Date(), msg);
         rabbitTemplate.convertAndSend("ex_x", "RK_XA", "消息存放于ttl=10s队列QA中----->" + msg);
-        rabbitTemplate.convertAndSend("ex_x", "RK_XB", "消息存放于ttl=10s队列QA中----->" + msg);
+        rabbitTemplate.convertAndSend("ex_x", "RK_XB", "消息存放于ttl=10s队列QB中----->" + msg);
     }
 
     @GetMapping("sendExpirationMsg/{msg}/{ttlTime}")
