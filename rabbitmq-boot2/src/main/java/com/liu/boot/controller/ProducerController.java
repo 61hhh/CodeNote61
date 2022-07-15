@@ -32,6 +32,13 @@ public class ProducerController {
     @PostConstruct
     public void init() {
         rabbitTemplate.setConfirmCallback(myCallBack);
+        /*
+         * true: 交换机无法将消息路由时，会将消息返回生产者
+         * false:发现消息无法路由则丢弃
+         */
+        rabbitTemplate.setMandatory(true);
+        // 设置消息回退由谁处理
+        rabbitTemplate.setReturnsCallback(myCallBack);
     }
 
     @GetMapping("/sendMsg/{msg}")

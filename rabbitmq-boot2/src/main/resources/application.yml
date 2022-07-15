@@ -6,6 +6,7 @@ spring:
     password: guest
     virtual-host: /
     publisher-confirm-type: correlated
+    publisher-returns: true
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
