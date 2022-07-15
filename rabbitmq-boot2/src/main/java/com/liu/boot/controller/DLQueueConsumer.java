@@ -22,4 +22,11 @@ public class DLQueueConsumer {
         String msg = new String(message.getBody());
         log.info("当前时间----->{},从死信队列获取到的消息----->{}", new Date(), msg);
     }
+
+    // 延时插件消费
+    @RabbitListener(queues = "delayed.queue")
+    public void receiveDelayQueue(Message msg, Channel channel) {
+        String message = new String(msg.getBody());
+        log.info("当前时间：{}，收到延时消息：{}", new Date(), message);
+    }
 }

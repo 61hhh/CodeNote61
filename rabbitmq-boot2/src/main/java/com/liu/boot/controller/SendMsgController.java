@@ -1,6 +1,8 @@
 package com.liu.boot.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -37,5 +40,15 @@ public class SendMsgController {
             return correlationData;
         });
         log.info("当前时间----->{},发送一个TTL为{}的消息给队列C----->{}", new Date(), ttlTime, msg);
+    }
+
+    // 延时插件
+    @RequestMapping("/plugins/sendMsg/{msg}/{time}")
+    public void sendMsgByPlugin(@PathVariable String msg, @PathVariable Integer time) {
+        MessageProperties properties = new MessageProperties();
+        properties.setDelay(time);
+        Message message = new Message(msg.getBytes(StandardCharsets.UTF_8), properties);
+        log.info("当前时间：{},发送过期时间为{}毫秒的消息到延时插件，内容为：{}", new Date(), time, msg);
+        rabbitTemplate.convertAndSend("delayed.exchange", "delayed.routingKey", message);
     }
 }
