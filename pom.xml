@@ -20,6 +20,7 @@
         <module>segmentation</module>
         <module>rabbitmq</module>
         <module>rabbitmq-boot2</module>
+        <module>javanotes</module>
         <!--<module>rabbitmq-boot1</module> boot项目-->
     </modules>
 
