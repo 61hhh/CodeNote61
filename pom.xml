@@ -19,8 +19,12 @@
     <modules>
         <module>segmentation</module>
         <module>rabbitmq</module>
+        <module>rabbitmq-boot1</module>
         <module>rabbitmq-boot2</module>
+        <module>es-api</module>
+        <module>es-jd</module>
         <module>javanotes</module>
+        <module>kafka-demo</module>
         <!--<module>rabbitmq-boot1</module> boot项目-->
     </modules>
 
